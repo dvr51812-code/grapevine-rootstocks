@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архитектура корней подвоев: Визуальный анализ</title>
+    <style>
+        :root {
+            --primary-color: #722F37;
+            --text-color: #24292e;
+            --bg-color: #ffffff;
+            --border-color: #d1d5da;
+            --accent-blue: #0366d6;
+            --accent-yellow: #f9c513;
+            --light-bg: #f6f8fa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--light-bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2em;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #586069;
+            font-size: 1.1em;
+        }
+
+        .source-note {
+            background: #f1f8ff;
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95em;
+        }
+
+        .methodology-note {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .figure-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .image-container {
+            width: 100%;
+            background: #e1e4e8;
+            position: relative;
+            aspect-ratio: 1 / 1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .figure-caption {
+            padding: 20px;
+        }
+
+        .figure-title {
+            color: var(--primary-color);
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .strategy-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .strategy-list li {
+            margin-bottom: 12px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-yellow);
+        }
+
+        .strategy-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #586069;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Архитектура корневой системы подвоев</h1>
+        <p class="subtitle">Визуализация стратегий выживания на тяжелых глинистых почвах (Сицилия)</p>
+    </header>
+
+    <div class="source-note">
+        <strong>Источник данных:</strong> Фотографии траншейных разрезов взяты из исследования 
+        <em>Ferlito et al. (2020), "Root system architecture of grapevine rootstocks in a heavy clay soil"</em>. 
+        Эксперимент проводился на 17-летнем винограднике на почве с критическим уплотнением (1.51 г/см³) на глубине 21–40 см.
+    </div>
+
+    <div class="methodology-note">
+        <strong>⚠️ Важно о методике окрашивания:</strong><br>
+        На фотографиях видны корни белого цвета. Это не естественный оттенок древесины, а <strong>следы специальной краски</strong>. 
+        В полевых экспериментах исследователи окрашивают корневые системы конкретных кустов, чтобы визуально отделить их от корней соседних растений в общей массе почвы. 
+        Это позволяет точно измерить длину, плотность и направление роста именно того подвоя, который изучается, не путая его с корнями других лоз.
+    </div>
+
+    <div class="gallery">
+        
+        <!-- ФОТОГРАФИЯ 1 -->
+        <div class="figure-card">
+            <div class="image-container">
+                <img src="roots-overview.jpg" alt="Коллаж корневых систем подвоев 1103P, 140R, 34EM и корнесобственных">
+            </div>
+            <div class="figure-caption">
+                <h2 class="figure-title">Фотография 1: Сравнительная архитектура (Общий вид)</h2>
+                <p>На этом снимке представлены четыре варианта развития корневой системы в условиях тяжелой глины. Обратите внимание на распределение биомассы по глубине профиля.</p>
+                <ul class="strategy-list">
+                    <li>
+                        <span class="strategy-name">a — 1103 Paulsen:</span> Демонстрирует стратегию «обтекания». Густая сеть корней в среднем слое (40–60 см), активное ветвление вокруг уплотненного горизонта.
+                    </li>
+                    <li>
+                        <span class="strategy-name">b — 140 Ruggeri:</span> Стратегия «бурения». Более вертикальные, мощные корни, пробивающие почву вглубь.
+                    </li>
+                    <li>
+                        <span class="strategy-name">c — 34 EM:</span> Стратегия «избегания». Корни сконцентрированы поверхностно, ниже 40 см система резко истощается.
+                    </li>
+                    <li>
+                        <span class="strategy-name">d — Корнесобственные:</span> Менее организованная структура, уступающая привитым аналогам в освоении глубоких горизонтов.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ФОТОГРАФИЯ 2 -->
+        <div class="figure-card">
+            <div class="image-container">
+                <img src="roots-detail.jpg" alt="Детальный вид корневых систем подвоев">
+            </div>
+            <div class="figure-caption">
+                <h2 class="figure-title">Фотография 2: Детализация структуры (Крупный план)</h2>
+                <p>Второй ракурс позволяет лучше рассмотреть толщину скелетных корней и характер ветвления. Белые окрашенные корни четко выделяются на фоне почвы, показывая траекторию роста.</p>
+                <ul class="strategy-list">
+                    <li>
+                        <span class="strategy-name">Особенности 1103 Paulsen (a, b):</span> Видно множество тонких всасывающих корней, образующих «войлок» в зоне максимального сопротивления. Это адаптация к поиску воды в микротрещинах глины.
+                    </li>
+                    <li>
+                        <span class="strategy-name">Особенности 140 Ruggeri (b):</span> Отчетливо видны толстые проводящие корни, идущие вниз под острым углом. Минимум бокового ветвления в верхней части, максимум усилий направлен на проникновение.
+                    </li>
+                    <li>
+                        <span class="strategy-name">Контраст с 34 EM (c):</span> Корни выглядят более тонкими и хаотичными в нижней части траншеи, что подтверждает низкую способность этого подвоя осваивать глубокие слои тяжелой глины.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Данные основаны на полевых экспериментах Ferlito et al. (2020) · Australian Journal of Grape and Wine Research</p>
+    </footer>
+</div>
+
+</body>
+</html>
